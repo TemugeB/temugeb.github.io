@@ -25,14 +25,15 @@ The post will go as follows:
 
 **Introduction**
 
-The method applies an SVD decomposition to the given giant matrix. The SVD decomposition of any matrix can be written as: A = U S VT, where U and V are ortho-normal matrices, shown below. In fact, if you’re familiar with PCA, the columns of V are the principal axes of PCA. S is a diagonal matrix.
+The method applies an SVD decomposition to the given giant matrix. The SVD decomposition of any matrix can be written as: A = U S V<sup>T</sup>, where U and V are ortho-normal matrices, shown below. In fact, if you’re familiar with PCA, the columns of V are the principal axes of PCA. S is a diagonal matrix.
 
 
 <p align="center">
   <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/1024px-Singular_value_decomposition_visualisation.svg.png?raw=true" width = 500>
 </p>
 <p align="center">
-SVD decomposition. Image from Wikipedia. By Cmglee – Own work, CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=67853297
+SVD decomposition. Image from Wikipedia. By Cmglee – Own work, 
+CC BY-SA 4.0, https://commons.wikimedia.org/w/index.php?curid=67853297
 </p>
 
 It would appear that the SVD decomposition of a matrix is actually larger than the original matrix. However, theory states that if you cut off the decomposition to some row and column k, then that decomposition will be the best approximation of the original matrix. Then, the decomposition that Funk proposed was M = U<sub>500,000×40</sub> V<sub>40×17,000</sub>, roughly shown below. We assume that the diagonal matrix that appears in the middle has been multiplied into either U or V.
@@ -44,7 +45,7 @@ It would appear that the SVD decomposition of a matrix is actually larger than t
 Funk’s SVD decomposition of Netflix ranking matrix
 </p>
 
-The intuition behind this decomposition is that many users will have typical ranking patterns. For example, action movie fans will rank action movies high and romance movies low. This means that we can classify users into what kind of movie fan that person is and that classification requires not that many parameters. Thus, each 40 dimensional column vector of VT assigns a latent space representation of each user. In a similar manner, any movie can also be encoded into a latent representation, given as a 40 dimensional row vector of U. However, the row vectors of U does not have an intuitive explanation, as they are completely tied with column vectors of V to give movie rankings.
+The intuition behind this decomposition is that many users will have typical ranking patterns. For example, action movie fans will rank action movies high and romance movies low. This means that we can classify users into what kind of movie fan that person is and that classification requires not that many parameters. Thus, each 40 dimensional column vector of V<sup>T</sup> assigns a latent space representation of each user. In a similar manner, any movie can also be encoded into a latent representation, given as a 40 dimensional row vector of U. However, the row vectors of U does not have an intuitive explanation, as they are completely tied with column vectors of V to give movie rankings.
 
 The question is then how to determine the rows and columns of U and V. This is done simply by initializing random U and V matrices and then performing gradient descent until the original M matrix is approximated. The ranking of i’th movie by j’th user can be predicted as:
 

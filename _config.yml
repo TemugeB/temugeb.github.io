@@ -58,9 +58,3 @@ plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
 
-plainwhite:
-  navigation:
-    - title: Top
-      url: "/index"
-    - title: About Me
-      url: "/about"

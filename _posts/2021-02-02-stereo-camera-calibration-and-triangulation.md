@@ -8,7 +8,7 @@ categories: OpenCV Python
 In this post, I show how to calibrate two cameras looking at the same view using a checkerboard pattern. Next, I show how to triangulate a 3D point based on the observed pixel coordinates of the two cameras.
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/triangulate.png">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/triangulate.png?raw=true">
 </p>
 
 The flow of this demo will be:

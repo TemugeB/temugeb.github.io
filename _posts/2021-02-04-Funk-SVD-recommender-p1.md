@@ -363,6 +363,6 @@ You can now go back and play around with some of the variables to see how the va
 
 In the next post, we will apply this UV decomposition to real data. In this post, I showed how to apply Funk’s SVD method to decompose a matrix M and predict unknown entries. When the matrix M has strong dependence on a few columns and rows of U and V, then we can get a good approximation of M using a much smaller U_d and V_d matrices. Hopefully this convinces you that some matrices can be decomposed into smaller latent variable matrices.
 
-Refernces:
+References:
 
 Funk’s original post: [link](https://sifter.org/~simon/journal/20061211.html)

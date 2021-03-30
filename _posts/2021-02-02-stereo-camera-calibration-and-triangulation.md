@@ -5,15 +5,10 @@ date:   2021-02-02 10:00:00 +0000
 categories: OpenCV Python
 ---
 
-In this post, I show how to calibrate two cameras looking at the same view using a checkerboard pattern. Next, I show how to triangulate a 3D point based on the observed pixels of the two cameras.
-
-![triangulation demo](images/triangulate.png)
+In this post, I show how to calibrate two cameras looking at the same view using a checkerboard pattern. Next, I show how to triangulate a 3D point based on the observed pixel coordinates of the two cameras.
 
 <p align="center">
-  <img src="images/triangulate.png">
-</p>
-<p align="center">
-  fig caption
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/triangulate.png">
 </p>
 
 The flow of this demo will be:
@@ -44,7 +39,12 @@ for imname in images_names:
 
 ```
 
-![calibration frames](images/frames.png)
+<p align="center">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/frames.png">
+</p>
+<p align="center">
+Sample frames.
+</p>
 
 Next, we need to detect the checkerboard patterns. This can be done by using opencv builtin functions. Opencv assumes that the bottom left of the checkerboard pattern is the world coordinate. This means each frame we use to calibrate gets a separate world coordinate. However, in the coordinate space of the checkerboard, we can easily define the coordinates of each of the square corners. Make sure to set the number of rows and columns as in the image below. Notice that the rows and columns are not equal to the actual number of squares in the checkerboard.
 
@@ -96,7 +96,12 @@ for frame in images:
         imgpoints.append(corners)
 ```
 
-![checkerboard detection](images/checkboard_detect.png)
+<p align="center">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/checkboard_detect.png">
+</p>
+<p align="center">
+Detected 5x8 checkerboard pattern.
+</p>
 
 Then camera calibration can be done with a single function call. The returned values are: RMSE, camera matrix, distortion coefficients, per frame rotations and translations. Of importance is the RMSE value. This gives the per pixel projection error. Anything under 1 is very good. You might be able to get away with up to 2 or 3. My provided images return a value of 0.44 for camera#1 and 0.30 for camera#2.
 
@@ -204,6 +209,13 @@ for im1, im2 in zip(c1_images_names, c2_images_names):
 ```
 
 ![stereo view](images/stereo_view.png)
+<p align="center">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/stereo_view.png">
+</p>
+<p align="center">
+Synched frames from 2 cameras.
+</p>
+
 
 Next, we again find the checkerboard patterns on the two camera frames. If your frames are already synchronized in the previous step, then the image coordinates will work without having to find them again. If you’re using the images I provide, then the frames are not synchronized in the previous step and you need to read the images from the ‘synched’ folder. Otherwise, the code is the same as before.
 
@@ -253,7 +265,10 @@ for frame1, frame2 in zip(c1_images, c2_images):
         imgpoints_right.append(corners2)
 ```
 
-![stereo checkerboard detect](images/stereo_checkerboard_detect.png)
+<p align="center">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/stereo_checkerboard_detect.png">
+</p>
+
 
 Once we have the pixel coordinates of the checkerboard in each image, we simply calibrate the stereo camera setup with a single function call. But we have to tell the function call to keep the camera matrices constant.
 
@@ -379,7 +394,13 @@ plt.scatter(uvs2[:,0], uvs2[:,1])
 plt.show()
 ```
 
-![keypoints](images/keypoints.png)
+<p align="center">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/keypoints.png">
+</p>
+<p align="center">
+Keypoints for triangulation.
+</p>
+
 
 The next step is to obtain the projection matrices. This is done simply by multiplying the camera matrix by the rotation and translation matrix.
 
@@ -446,7 +467,13 @@ for _c in connections:
 plt.show()
 ```
 
-![pose triangulation](images/triangulation.png)
+<p align="center">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/triangulation.png">
+</p>
+<p align="center">
+3D coordinates are triangulated using the camera matrices.
+</p>
+
 
 So that is it. The full code is below. You can copy and paste for the full run through. Make sure you also download and put the frames I use in this demo in the same working folder. The frames can be downloaded here: [link](https://drive.google.com/file/d/1yFGQU8PG_Ls6DXDRshWoEydSS29sUJbI/view?usp=sharing). If you observe a segmentation fault crash, then comment out cv.imshow() or plt.show() calls.
 

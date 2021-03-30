@@ -247,7 +247,7 @@ for frame1, frame2 in zip(c1_images, c2_images):
         imgpoints_right.append(corners2)
 ```
 
-![stereo checkerboard detect](images/stereo_checkboard_detect.png)
+![stereo checkerboard detect](images/stereo_checkerboard_detect.png)
 
 Once we have the pixel coordinates of the checkerboard in each image, we simply calibrate the stereo camera setup with a single function call. But we have to tell the function call to keep the camera matrices constant.
 

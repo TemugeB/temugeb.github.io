@@ -5,13 +5,6 @@ description: > # this means to ignore newlines until "show_exerpts:"
   Temuge Bapurev's blog posts and repositories. 
 show_excerpts: true # set to true to show excerpts on the homepage
 
-plainwhite:
-  navigation:
-    - title: Top
-      url: "/index"
-    - title: About Me
-      url: "/about"
-
 # Minima date format
 # refer to http://shopify.github.io/liquid/filters/date/ if you want to customize this
 sass:
@@ -64,3 +57,10 @@ remote_theme: samarsault/plainwhite-jekyll
 plugins:
   - jekyll-seo-tag
 #  - jekyll-feed
+
+plainwhite:
+  navigation:
+    - title: Top
+      url: "/index"
+    - title: About Me
+      url: "/about"

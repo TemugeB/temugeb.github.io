@@ -18,11 +18,12 @@ The flow of this demo will be:
 
 I assume that you have already taken checkerboard pattern videos by both cameras. Make sure that your cameras are synchronized so that both frames see the same checkerboard pattern at the same time. If you don’t have video available, you can download my calibration frames here: [link](https://drive.google.com/file/d/1yFGQU8PG_Ls6DXDRshWoEydSS29sUJbI/view?usp=sharing). Put each folder in the zip file next to your code script.  
 
-**  1. Calibrating Single View Cameras **
+1. **Calibrating Single View Cameras**
 
 The cameras are first calibrated individually. This is recommended because the number of parameters that need to be fitted are large for the stereo calibration case.
 
 We first read in the calibration frames:
+
 '''python
 import cv2 as cv
 import glob

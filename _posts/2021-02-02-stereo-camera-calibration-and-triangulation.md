@@ -9,6 +9,12 @@ In this post, I show how to calibrate two cameras looking at the same view using
 
 ![triangulation demo](images/triangulate.png)
 
+<p align="center">
+  <img src="images/triangulate.png">
+</p>
+<p align="center">
+  fig caption
+</p>
 
 The flow of this demo will be:
 

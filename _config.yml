@@ -51,6 +51,13 @@ plainwhite:
 # header_pages:
 #  - about.md
 
+plainwhite:
+  navigation:
+    - title: Top
+      url: "/index"
+    - title: About Me
+      url: "/about"
+
 # Build settings
 remote_theme: samarsault/plainwhite-jekyll
 

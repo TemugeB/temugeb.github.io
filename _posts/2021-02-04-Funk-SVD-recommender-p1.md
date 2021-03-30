@@ -148,7 +148,7 @@ plt.show()
 ```
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/training_loss.png?raw=true" width = 500>
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/training_loss.png?raw=true">
 </p>
 <p align="center">
 Loss function of training.
@@ -182,7 +182,7 @@ plt.show()
 ```
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/training_loss_adam.png?raw=true" width = 500>
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/training_loss_adam.png?raw=true">
 </p>
 <p align="center">
 Comparison of Adam and vanilla GD.
@@ -250,7 +250,7 @@ plt.show()
 ```
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/harmonic_series.png?raw=true" width = 500>
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/harmonic_series.png?raw=true">
 </p>
 <p align="center">
 Harmonic series weighting. We see that only the first 50 or columns and rows of U and V contribute to M. The rest contribute insignificantly.
@@ -351,7 +351,7 @@ print('epochs: ', ep)
 ```
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/loss_toy_problem.png?raw=true" width = 500>
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/loss_toy_problem.png?raw=true">
 </p>
 <p align="center">
 Validation and training loss

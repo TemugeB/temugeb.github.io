@@ -40,7 +40,7 @@ plainwhite:
     #email: jekyll
 
   navigation:
-    - title: Top
+    - title: Top/Posts
       url: "/index"
     - title: About Me
       url: "/about"

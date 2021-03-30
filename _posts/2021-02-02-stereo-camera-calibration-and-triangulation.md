@@ -40,7 +40,7 @@ for imname in images_names:
 ```
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/frames.png">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/frames.png?raw=true">
 </p>
 <p align="center">
 Sample frames.
@@ -97,7 +97,7 @@ for frame in images:
 ```
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/checkboard_detect.png">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/checkboard_detect.png?raw=true">
 </p>
 <p align="center">
 Detected 5x8 checkerboard pattern.
@@ -210,7 +210,7 @@ for im1, im2 in zip(c1_images_names, c2_images_names):
 
 ![stereo view](images/stereo_view.png)
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/stereo_view.png">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/stereo_view.png?raw=true">
 </p>
 <p align="center">
 Synched frames from 2 cameras.
@@ -266,7 +266,7 @@ for frame1, frame2 in zip(c1_images, c2_images):
 ```
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/stereo_checkerboard_detect.png">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/stereo_checkerboard_detect.png?raw=true">
 </p>
 
 
@@ -395,7 +395,7 @@ plt.show()
 ```
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/keypoints.png">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/keypoints.png?raw=true">
 </p>
 <p align="center">
 Keypoints for triangulation.
@@ -468,7 +468,7 @@ plt.show()
 ```
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/triangulation.png">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/triangulation.png?raw=true">
 </p>
 <p align="center">
 3D coordinates are triangulated using the camera matrices.

@@ -42,6 +42,8 @@ plainwhite:
   navigation:
     - title: Posts
       url: "/index"
+    - title: Code Repository
+      url: "/repository"
     - title: About Me
       url: "/about"
       

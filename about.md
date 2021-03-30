@@ -9,12 +9,12 @@ Hi, thanks for coming to my site. I mostly write and upload coding and machine l
 
 **Here is a short bio:**
 
-2009 - 2012: Graduated University of Maryland
-2012 - 2014: Project manager at Erdenes Tavan Tolgoi LLC
-2014 - 2016: Graduated from Osaka University with Master's
-2016 - 2020: Graduated from Osaka University with PhD
-2019 - 2021: AI engineer at Skydisc Inc, Tokyo office
-2020 - present: Research Scientist at Kyushu Institute of Technology
+2009 - 2012: Graduated University of Maryland  
+2012 - 2014: Project manager at Erdenes Tavan Tolgoi LLC  
+2014 - 2016: Graduated from Osaka University with Master's  
+2016 - 2020: Graduated from Osaka University with PhD  
+2019 - 2021: AI engineer at Skydisc Inc, Tokyo office  
+2020 - present: Research Scientist at Kyushu Institute of Technology  
 
 **Random tidbits**
 

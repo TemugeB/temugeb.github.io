@@ -24,7 +24,7 @@ The cameras are first calibrated individually. This is recommended because the n
 
 We first read in the calibration frames:
 
-'''python
+```python
 import cv2 as cv
 import glob
 import numpy as np
@@ -36,4 +36,4 @@ for imname in images_names:
     im = cv.imread(imname, 1)
     images.append(im)    
 
-'''
+```

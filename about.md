@@ -14,7 +14,7 @@ Hi, thanks for coming to my site. I mostly write coding and machine learning pos
 2014 - 2016: Graduated from Osaka University with Master's  
 2016 - 2020: Graduated from Osaka University with PhD  
 2019 - 2021: AI engineer at Skydisc Inc, Tokyo office  
-2020 - present: Research Scientist at Kyushu Institute of Technology  
+2020 - present: Research scientist at Kyushu Institute of Technology  
 
 **Random tidbits**
 

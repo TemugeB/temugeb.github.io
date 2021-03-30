@@ -5,7 +5,7 @@ title: About Me
 
 **About Me**
 
-Hi, thanks for coming to my site. I mostly write and upload coding and machine learning post here. Please check out my GitHub repository as well.
+Hi, thanks for coming to my site. I mostly write coding and machine learning posts here. Please check out my GitHub repository as well.
 
 **Here is a short bio:**
 

@@ -39,6 +39,12 @@ plainwhite:
     #gitlab: jekyll
     #email: jekyll
 
+  navigation:
+    - title: Top
+      url: "/index"
+    - title: About Me
+      url: "/about"
+      
     # Mastodon instances
     # mastodon:
     # - username: jekyll
@@ -48,9 +54,9 @@ plainwhite:
 
 # If you want to link only specific pages in your header, uncomment
 # this and add the path to the pages in order as they should show up
-header_pages:
-  - /about.md
-  - /index.md
+# header_pages:
+#   - /about.md
+#   - /index.md
 # Build settings
 remote_theme: samarsault/plainwhite-jekyll
 

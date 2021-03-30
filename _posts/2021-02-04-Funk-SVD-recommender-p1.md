@@ -284,7 +284,7 @@ plt.show()
 ```
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/blanked_matrix.png?raw=true" width = 500>
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/blanked_matrix.png?raw=true">
 </p>
 <p align="center">
 Dots represent entries that remain in M. The blanks represent the entries that we removed from M. Our goal is to estimate these blank spots after U and V decomposition.

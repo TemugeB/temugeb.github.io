@@ -19,7 +19,7 @@ The flow of this demo will be:
 
 I assume that you have already taken checkerboard pattern videos by both cameras. Make sure that your cameras are synchronized so that both frames see the same checkerboard pattern at the same time. If you don’t have video available, you can download my calibration frames here: [link](https://drive.google.com/file/d/1yFGQU8PG_Ls6DXDRshWoEydSS29sUJbI/view?usp=sharing). Put each folder in the zip file next to your code script.  
 
-1. **Calibrating Single View Cameras**
+**Calibrating Single View Cameras**
 
 The cameras are first calibrated individually. This is recommended because the number of parameters that need to be fitted are large for the stereo calibration case.
 
@@ -187,7 +187,7 @@ mtx1, dist1 = calibrate_camera(images_folder = 'D2/*')
 mtx2, dist2 = calibrate_camera(images_folder = 'J2/*')
 ```
 
-2. **Stereo Calibration**
+**Stereo Calibration**
 
 We now attempt stereo calibration. I assume you have the camera matrices and distortion coefficients of both cameras from last step. Our first step is to read synchronized frames from both cameras. If you’re using the images I provide, they are stored in the ‘synched’ folder. Make sure to read the images in correct order. Otherwise, the calibration will not work.
 
@@ -208,7 +208,6 @@ for im1, im2 in zip(c1_images_names, c2_images_names):
     c2_images.append(_im)
 ```
 
-![stereo view](images/stereo_view.png)
 <p align="center">
   <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/stereo_view.png?raw=true">
 </p>
@@ -359,7 +358,7 @@ def stereo_calibrate(mtx1, dist1, mtx2, dist2, frames_folder):
 R, T = stereo_calibrate(mtx1, dist1, mtx2, dist2, 'synched/*')
 ```
 
-3. **Stereo Triangulation**
+**Stereo Triangulation**
 
 We are now ready to triangulate pixel coordinates from two frames into 3D coordinates. As noted in the previous section, by selecting **R**1 = eye(3) and **T**1 = zeros(3), our triangulated points will measured from the position and orientation of camera #1.
 

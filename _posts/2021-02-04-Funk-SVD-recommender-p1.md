@@ -38,7 +38,7 @@ SVD decomposition. Image from Wikipedia. By Cmglee – Own work, CC BY-SA 4.0, h
 It would appear that the SVD decomposition of a matrix is actually larger than the original matrix. However, theory states that if you cut off the decomposition to some row and column k, then that decomposition will be the best approximation of the original matrix. Then, the decomposition that Funk proposed was M = U<sub>500,000×40</sub> V<sub>40×17,000</sub>, roughly shown below. We assume that the diagonal matrix that appears in the middle has been multiplied into either U or V.
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/image-2.png?raw=true" width = 400>
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/image-2.png?raw=true" width = 500>
 </p>
 <p align="center">
 Funk’s SVD decomposition of Netflix ranking matrix
@@ -61,17 +61,17 @@ Where **u**i is the i’th row of U and **v**j is the j’th column of V. The er
 We can then define a full loss function as the MSE between prediction and corresponding entries in the matrix M as:
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/eq3.gif?raw=true" height = 50>
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/eq3.gif?raw=true" height = 70>
 </p>
 
 Our goal is to minimize L with respect to the entries of U and V. This is a familiar problem definition for people who has done neural network training. We can write down the weights update step as:
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/eq4.gif?raw=true" height = 50>
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/eq4.gif?raw=true" height = 70>
 </p>
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/eq5.gif?raw=true" height = 50>
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/eq5.gif?raw=true" height = 70>
 </p>
 
 Since the problem is symmetric, for U and V, the u‘s and v‘s in the equation above can be replaced to obtain the update step for v‘s.

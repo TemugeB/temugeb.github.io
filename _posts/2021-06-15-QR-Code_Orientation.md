@@ -90,7 +90,7 @@ Next, we run the QR detection algorithm. This can be done with a single call.
 ```python
 ret_qr, points = qr.detect(img)
 ```
-The first returned value indicates if QR code was found or not, and has a boolean value. The second returned variable provides the four corners of the QR code. These are shown in Figure 2. If you want to detect QR and decode the value, you can call detectAndDecode(). 
+The first returned value indicates if QR code was found or not, and has a boolean value. The second returned variable provides the four corners of the QR code as pixel values in the image. These are shown in Figure 2. If you want to detect QR and decode the value, you can call qr.detectAndDecode(). 
 
 
 <p align="center">
@@ -100,16 +100,39 @@ The first returned value indicates if QR code was found or not, and has a boolea
 Figure 2. Points returned by QR detector.
 </p>
 
-OpenCV uses a right hand coordinate system. To have the QR coordinate axes to point up, we have to chose x axis to be pointing from point #1 to #4 and y axis to point from #1 to #2. This will point z axis up from the QR code. These coordinates need to be saved to draw them later. I add these coordinates at the top of my code as global variables. 
+If QR code is found, then we can use the four detected corners to define a coordinate system. In this demo, point #1 is defined as origin. OpenCV uses a right hand coordinate system. To have the QR coordinate axes to point up, we have to chose x axis to be pointing from point #1 to #4 and y axis to point from #1 to #2. This will point z axis up from the QR code. To get this coordinate system, we have to assign coordinate values to each point (#1 through #4). The assigned coordinate values are shown in Figure 2. Once we have the pixel values of the corners and our assigned coordinate for each point, we can determine the rotation matrix and translation vector using OpenCV functionality. 
 ```python
-import cv2 as cv
-import numpy as np
-import sys
+def get_qr_coords(cmtx, dist, points):
 
-qr_edges = np.array([[0,0,0],
-                     [0,1,0],
-                     [1,1,0],
-                     [1,0,0]], dtype = 'float32').reshape((4,1,3))
-...
+    #Selected coordinate points for each corner of QR code.
+    qr_edges = np.array([[0,0,0],
+                         [0,1,0],
+                         [1,1,0],
+                         [1,0,0]], dtype = 'float32').reshape((4,1,3))
+
+    #determine the orientation of QR code coordinate system with respect to camera coorindate system.
+    ret, rvec, tvec = cv.solvePnP(qr_edges, points, cmtx, dist)
 ```
 
+The internal method used by cv.solvePnP to get rotation and translation data can be found here: [link](https://docs.opencv.org/3.4/d9/d0c/group__calib3d.html). If rotation matrix and translation vector are successfully found, we simply reproject unit x,y,z vectors to camera pixel values to draw them. 
+```python
+def get_qr_coords(cmtx, dist, points):
+
+    #Selected coordinate points for each corner of QR code.
+    qr_edges = np.array([[0,0,0],
+                         [0,1,0],
+                         [1,1,0],
+                         [1,0,0]], dtype = 'float32').reshape((4,1,3))
+
+    #determine the orientation of QR code coordinate system with respect to camera coorindate system.
+    ret, rvec, tvec = cv.solvePnP(qr_edges, points, cmtx, dist)
+
+    #Define unit xyz axes. These are then projected to camera view using the rotation matrix and translation vector.
+    unitv_points = np.array([[0,0,0], [1,0,0], [0,1,0], [0,0,1]], dtype = 'float32').reshape((4,1,3))
+    if ret:
+        points, jac = cv.projectPoints(unitv_points, rvec, tvec, cmtx, dist)
+        return points, rvec, tvec
+
+    #return empty arrays if rotation and translation values not found
+    else: return [], [], []
+```

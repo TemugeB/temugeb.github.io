@@ -85,3 +85,31 @@ def show_axes(cmtx, dist, in_source):
     cap.release()
     cv.destroyAllWindows()
 ```
+
+Next, we run the QR detection algorithm. This can be done with a single call.
+```python
+ret_qr, points = qr.detect(img)
+```
+The first returned value indicates if QR code was found or not, and has a boolean value. The second returned variable provides the four corners of the QR code. These are shown in Figure 2. If you want to detect QR and decode the value, you can call detectAndDecode(). 
+
+
+<p align="center">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/QR_points.png?raw=true">
+</p>
+<p align="center">
+Figure 2. Points returned by QR detector.
+</p>
+
+OpenCV uses a right hand coordinate system. To have the QR coordinate axes to point up, we have to chose x axis to be pointing from point #1 to #4 and y axis to point from #1 to #2. This will point z axis up from the QR code. These coordinates need to be saved to draw them later. I add these coordinates at the top of my code as global variables. 
+```python
+import cv2 as cv
+import numpy as np
+import sys
+
+qr_edges = np.array([[0,0,0],
+                     [0,1,0],
+                     [1,1,0],
+                     [1,0,0]], dtype = 'float32').reshape((4,1,3))
+...
+```
+

@@ -131,8 +131,47 @@ def get_qr_coords(cmtx, dist, points):
     unitv_points = np.array([[0,0,0], [1,0,0], [0,1,0], [0,0,1]], dtype = 'float32').reshape((4,1,3))
     if ret:
         points, jac = cv.projectPoints(unitv_points, rvec, tvec, cmtx, dist)
+        #the returned points are pixel coordinates of each unit vector.
         return points, rvec, tvec
 
     #return empty arrays if rotation and translation values not found
     else: return [], [], []
 ```
+
+To finish things up, we simply call the get_qr_coords() function whenever QR code is detected. This returns the unit vector positions that define the QR code coordinate system. Additionally, we return rotation and translation information for the camera from this defined coordinate system.
+```python
+    while True:
+        ret, img = cap.read()
+        if ret == False: break
+
+        ret_qr, points = qr.detect(img)
+
+        if ret_qr:
+            axis_points, rvec, tvec = get_qr_coords(cmtx, dist, points)
+
+            #BGR color format
+            colors = [(255, 0, 0), (0, 255, 0), (0, 0, 255), (0,0,0)]
+
+            #check axes points are projected to camera view.
+            if len(axis_points) > 0:
+                axis_points = axis_points.reshape((4,2))
+
+                origin = (int(axis_points[0][0]),int(axis_points[0][1]) )
+
+                for p, c in zip(axis_points[1:], colors[:3]):
+                    p = (int(p[0]), int(p[1]))
+
+                    #Sometimes qr detector will make a mistake and projected point will overflow integer value. We skip these cases. 
+                    if origin[0] > 5*img.shape[1] or origin[1] > 5*img.shape[1]:break
+                    if p[0] > 5*img.shape[1] or p[1] > 5*img.shape[1]:break
+
+                    cv.line(img, origin, p, c, 5)
+
+        cv.imshow('frame', img)
+
+        k = cv.waitKey(20)
+        if k == 27: break #27 is ESC key.
+```
+
+
+

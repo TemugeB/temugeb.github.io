@@ -114,7 +114,7 @@ def get_qr_coords(cmtx, dist, points):
     ret, rvec, tvec = cv.solvePnP(qr_edges, points, cmtx, dist)
 ```
 
-The internal method used by cv.solvePnP to get rotation and translation data can be found here: [link](https://docs.opencv.org/3.4/d9/d0c/group__calib3d.html). If rotation matrix and translation vector are successfully found, we simply reproject unit x,y,z vectors to camera pixel values to draw them. 
+The internal method used by cv.solvePnP to get rotation and translation data can be found here: [link](https://docs.opencv.org/3.4/d9/d0c/group__calib3d.html). If rotation matrix and translation vector are successfully found, we simply reproject unit x,y,z vectors to camera pixel values to draw them. Note however that the returned rotation matrix is in Rodrigues vector form. If you want to matrix form, call cv.Rodrigues() to convert between the two.
 ```python
 def get_qr_coords(cmtx, dist, points):
 
@@ -173,5 +173,13 @@ To finish things up, we simply call the get_qr_coords() function whenever QR cod
         if k == 27: break #27 is ESC key.
 ```
 
+If you need the position of the QR code with respect to the camera, then the position is saved in tvec. That is, the location of the QR code from the camera is tvec. On the other hand, if you need to location of the camera from the new QR code coordinates, then this can be calculated as:
+```python
+rvec, jacobian = cv.Rodrigues(rvec)
+camera_position = -rvec.transpose() * tvec
+```
 
+For closing notes, in this demo, we've used QR code to obtain the corner points. But in general, QR code is not necessary. As long as we can determine four in-plane points, the above method will work in determining orientation and location. For example, AR marker could be used to obtain the four corners, from which we can again define a coordinate system. 
+
+The accuracy of the QR detector is determined by how well the camera can focus on the QR code. In practice, focus of the camera should change as we get closer to the QR code. When the camera or the QR code moves fast, then the image is blurry and we observe poor performance from the QR detector. Additionally, if focal point of the camera changes, then the intrinsic parameters of the camera also changes. This mean the code above must dynamically create the intrinic parameters. 
 

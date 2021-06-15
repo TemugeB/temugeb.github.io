@@ -16,37 +16,72 @@ Figure 1. Example output.
 
 Before we start, you will need to have the intrinsic camera matrix and distortion parameters of your camera. To make this post more complete, a sample video clip and the correponding camera intrinsic parameters are provided. In this demo, the RGB channels of an Intel RealSense D435 camera is used. Some manufacturers will provide intrinsic camera parameters in product description. If not, you can follow my camera calibration guide for the single camera setup here: [link](https://temugeb.github.io/opencv/python/2021/02/02/stereo-camera-calibration-and-triangulation.html), or follow the OpenCV calibration guide here: [link](https://docs.opencv.org/master/dc/dbb/tutorial_py_calibration.html).
 
-First, we add imports and simple code to read the camera parameters.
+First, we add imports and simple code to read the camera parameters. If you're using your own intrinsic parameters, make sure to follow the format in my example or rewrite this code. 
 ```python
 import cv2 as cv
 import numpy as np
 import sys
 
 
-def read_camera_parameters():
+def read_camera_parameters(filepath = 'camera_parameters/intrinsic.dat'):
 
-    inf = open('camera_parameters/intrinsic.dat', 'r')
+    inf = open(filepath, 'r')
 
     cmtx = []
     dist = []
-    
+
     #ignore first line
     line = inf.readline()
     for _ in range(3):
         line = inf.readline().split()
         line = [float(en) for en in line]
         cmtx.append(line)
-    
+
     #ignore line that says "distortion"
     line = inf.readline()
     line = inf.readline().split()
     line = [float(en) for en in line]
     dist.append(line)
-    
+
     #cmtx = camera matrix, dist = distortion parameters
     return np.array(cmtx), np.array(dist)
+
+if __name__ == '__main__':
+
+    cmtx, dist = read_camera_parameters()
 ```
 
+Next, we will define input stream source. If you want to use a webcam, simply call the code with webcam id from command line. Otherwise, the default behavior is to use provided sample video clip. 
+```python
+if __name__ == '__main__':
 
+    #read camera intrinsic parameters.
+    cmtx, dist = read_camera_parameters()
 
+    input_source = 'test.mp4'
+    if len(sys.argv) > 1:
+        input_source = int(sys.argv[1])
 
+    show_axes(cmtx, dist, input_source)
+```
+
+Next, we will create a QR code reader object. Additionally, we will open the input stream source and read frames one by one and show the output.
+```python
+def show_axes(cmtx, dist, in_source):
+
+    cap = cv.VideoCapture(in_source)
+
+    qr = cv.QRCodeDetector()
+
+    while True:
+        ret, img = cap.read()
+        if ret == False: break
+
+        cv.imshow('frame', img)
+
+        k = cv.waitKey(20)
+        if k == 27: break #27 is ESC key.
+
+    cap.release()
+    cv.destroyAllWindows()
+```

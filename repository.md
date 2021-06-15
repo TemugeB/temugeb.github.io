@@ -19,7 +19,7 @@ Tensorflow implementation of differentiable direct linear transform, presented i
 [https://github.com/TemugeB/Differentiable_DLT_Tensorflow](https://github.com/TemugeB/Differentiable_DLT_Tensorflow)
 
 
-**QR Code Orientation with OpenCV**
+**QR Code Orientation with OpenCV**  
 Simple demo showing how to obtain position and orientation of QR code using OpenCV. We use this method in our lab to determine positions and orientations of objects in our Smart Workcell project.
 [https://github.com/TemugeB/QR_code_orientation_OpenCV](https://github.com/TemugeB/QR_code_orientation_OpenCV)
 

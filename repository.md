@@ -12,6 +12,12 @@ Tensorflow implementation of the canonical fusion model presented in the paper "
 [https://github.com/TemugeB/CDRnet](https://github.com/TemugeB/CDRnet)
 
 
+**Real time 3D hand pose esitmation using MediaPipe**
+
+Demo showing how to obtain 3D hand pose using MediaPipe and two calibrated cameras in real time. We use this for robotic arm manipulation in our lab.  
+[https://github.com/TemugeB/handpose3d](https://github.com/TemugeB/handpose3d)
+
+
 **Differentiable Direct Linear Transform**
 
 Tensorflow implementation of differentiable direct linear transform, presented in the paper:

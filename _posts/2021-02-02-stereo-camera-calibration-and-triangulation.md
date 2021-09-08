@@ -31,7 +31,7 @@ import glob
 import numpy as np
  
 images_folder = 'D2/*'
-images_names = glob.glob(images_folder)
+images_names = sorted(glob.glob(images_folder))
 images = []
 for imname in images_names:
     im = cv.imread(imname, 1)
@@ -122,7 +122,7 @@ import glob
 import numpy as np
  
 def calibrate_camera(images_folder):
-    images_names = glob.glob(images_folder)
+    images_names = sorted(glob.glob(images_folder))
     images = []
     for imname in images_names:
         im = cv.imread(imname, 1)

@@ -12,6 +12,12 @@ Tensorflow implementation of the canonical fusion model presented in the paper "
 [https://github.com/TemugeB/CDRnet](https://github.com/TemugeB/CDRnet)
 
 
+**3D body pose esitmation using MediaPipe in real time**
+
+Some students in the lab needed 3D pose estimation. This is quite easy now with off the shelf body pose estimators. In this example, I show how to obtain 3D pose estimation using mediapipe. 
+[https://github.com/TemugeB/bodypose3d](https://github.com/TemugeB/bodypose3d)
+
+
 **Real time 3D hand pose esitmation using MediaPipe**
 
 Demo showing how to obtain 3D hand pose using MediaPipe and two calibrated cameras in real time. We use this for robotic arm manipulation in our lab.  

@@ -14,7 +14,7 @@ Tensorflow implementation of the canonical fusion model presented in the paper "
 
 **3D body pose esitmation using MediaPipe in real time**
 
-Some students in the lab needed 3D pose estimation. This is quite easy now with off the shelf body pose estimators. In this example, I show how to obtain 3D pose estimation using mediapipe. 
+Some students in the lab needed 3D pose estimation. This is quite easy now with off the shelf body pose estimators. In this example, I show how to obtain 3D pose estimation using mediapipe.  
 [https://github.com/TemugeB/bodypose3d](https://github.com/TemugeB/bodypose3d)
 
 

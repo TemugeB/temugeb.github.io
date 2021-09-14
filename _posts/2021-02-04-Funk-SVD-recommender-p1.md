@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Simon Funk’s Netflix Recommendation Method in Tensorflow, Part 1"
+title:  "Simon Funk’s Netflix Recommendation System in Tensorflow, Part 1"
 date:   2021-02-04 10:00:00 +0000
 categories: Tensorflow Python SVD
 ---

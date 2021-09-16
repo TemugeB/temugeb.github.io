@@ -64,7 +64,7 @@ def Get_R(A,B):
 
 When decomposing a rotation matrix, the order of the rotation is important. In this example, we use the ZXY order, where we rotate around Y first. The rotation matrix in this case is:
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/Rmat.gif?raw=true" height = 180>
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/Rmat2.gif?raw=true" height = 180>
 </p>
 
 The rotation angles can be calculated from the full expansion above. For example, we see that arctan(r01/r11) gives rotation around z axis. In the same manner, all joint angles are calculated. If any other rotation order is used, then the matrix has the be rewritten with the correct order and then joint angles recalculated. Additionally, the arctan function needs to check the quadrant. Numpy has a useful function that checks the quadrant which I use below.

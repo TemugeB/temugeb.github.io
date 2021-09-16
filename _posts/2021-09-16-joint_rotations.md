@@ -169,7 +169,7 @@ Note however that as we calculate joint angles of further joints, we need to mod
 </p>
   
 <p align = 'center'>
-<a href="https://www.codecogs.com/eqnedit.php?latex=R_{knee}\overrightarrow{j}_{foot}&space;=&space;R_{hip}^{-1}R_{root}^{-1}(\overrightarrow{p}_{foot}&space;-&space;\overrightarrow{p}_{knee}&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?R_{knee}\overrightarrow{j}_{foot}&space;=&space;R_{hip}^{-1}R_{root}^{-1}(\overrightarrow{p}_{foot}&space;-&space;\overrightarrow{p}_{knee}&space;)" title="R_{knee}\overrightarrow{j}_{foot} = R_{hip}^{-1}R_{root}^{-1}(\overrightarrow{p}_{foot} - \overrightarrow{p}_{knee} )" /></a>
+<a href="https://www.codecogs.com/eqnedit.php?latex=R_{knee}\overrightarrow{j}_{foot}&space;=&space;R_{hip}^{-1}R_{root}^{-1}(\overrightarrow{p}_{foot}&space;-&space;\overrightarrow{p}_{knee}&space;)&space;=&space;\overrightarrow{b}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?R_{knee}\overrightarrow{j}_{foot}&space;=&space;R_{hip}^{-1}R_{root}^{-1}(\overrightarrow{p}_{foot}&space;-&space;\overrightarrow{p}_{knee}&space;)&space;=&space;\overrightarrow{b}" title="R_{knee}\overrightarrow{j}_{foot} = R_{hip}^{-1}R_{root}^{-1}(\overrightarrow{p}_{foot} - \overrightarrow{p}_{knee} ) = \overrightarrow{b}" /></a>
 </p>
 
 **Closing remarks**

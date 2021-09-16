@@ -24,7 +24,8 @@ Figure 1. Rotation along normal direction.
 </p>
 
 
-Given vector **A** and **B**, we can define a new basis by 
+Given vector **A** and **B**, we can define a new basis by making **A** a unit vector and taking the rejection of **B** onto **A** as the second axis. The third axis is simply defined as **A**x**B** normalized. This will allow us to write down the change of basis rotation matrix. Once the coordinates are aligned, we can simply rotate along the **A**x**B** direction, which is given by Rz rotation matrix. Note however that we don't need to know the rotation angle, since cos(theta)
+and sin(theta) are simply dot and cross products of the normalized **A** and **B** vectors.
 ```python 
 
 #calculate rotation matrix to take A vector to B vector

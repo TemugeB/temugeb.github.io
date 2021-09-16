@@ -164,5 +164,16 @@ thetaz, thetax, thetay = Decompose_R_ZXY(R)
 
 Note however that as we calculate joint angles of further joints, we need to modify above equations with more inverse rotation matrices. For example, to calculate the rotation matrix of the knee, we have to write:
 
+<p align = 'center'>
+<a href="https://www.codecogs.com/eqnedit.php?latex=\overrightarrow{p}_{foot}&space;=&space;\overrightarrow{p}_{knee}&space;&plus;&space;R_{root}R_{hip}R_{knee}\overrightarrow{j}_{foot}" target="_blank"><img src="https://latex.codecogs.com/gif.latex?\overrightarrow{p}_{foot}&space;=&space;\overrightarrow{p}_{knee}&space;&plus;&space;R_{root}R_{hip}R_{knee}\overrightarrow{j}_{foot}" title="\overrightarrow{p}_{foot} = \overrightarrow{p}_{knee} + R_{root}R_{hip}R_{knee}\overrightarrow{j}_{foot}" /></a>
+</p>
+  
+<p align = 'center'>
+<a href="https://www.codecogs.com/eqnedit.php?latex=R_{knee}\overrightarrow{j}_{foot}&space;=&space;R_{hip}^{-1}R_{root}^{-1}(\overrightarrow{p}_{foot}&space;-&space;\overrightarrow{p}_{knee}&space;)" target="_blank"><img src="https://latex.codecogs.com/gif.latex?R_{knee}\overrightarrow{j}_{foot}&space;=&space;R_{hip}^{-1}R_{root}^{-1}(\overrightarrow{p}_{foot}&space;-&space;\overrightarrow{p}_{knee}&space;)" title="R_{knee}\overrightarrow{j}_{foot} = R_{hip}^{-1}R_{root}^{-1}(\overrightarrow{p}_{foot} - \overrightarrow{p}_{knee} )" /></a>
+</p>
+
+**Closing remarks**
+
+In general, joint angles are not unique, depending on how the pose was set up and what kind of angle limits were placed. This means that joint angle are poor information encoders to use for model training. However they are useful for retargeting a pose to a standard skeleton. For example, different subjects will have different body proportions, which leads to different world space coordinates even if they perform the same motion. To get around this, we can calculate the joint angles and the put these joint angles to a standard skeleton, which will get rid of the differences in body proportions. Another use case is if you used some kind of keypoints estimator to get the 3D coordinates but these coordinates are not consistent. For example, the position of the shoulders might shift around because of the inaccuracy of the keypoints estimator. To get around this, again we calculate the joint angles and place them on a standard skeleton. 
 
 

@@ -60,7 +60,7 @@ def Get_R(A,B):
     return R
 ```
 
-**2. Decomposing rotation matrix into rotation sequence along major axes. **  
+**2. Decomposing rotation matrix into rotation sequence along major axes.**
 
 When decomposing a rotation matrix, the order of the rotation is important. In this example, we use the ZXY order, where we rotate around Y first. The rotation matrix in this case is:
 <p align="center">

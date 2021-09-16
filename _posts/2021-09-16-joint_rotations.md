@@ -5,7 +5,7 @@ date:   2021-09-16 10:00:00 +0000
 categories: Python Motion_capture 
 ---
 
-This post gives a general strategy on how to calculate joint angles from 3D body poses given in world coordinates. If you need to get 3D body poses, check my post [here](https://temugeb.github.io/python/computer_vision/2021/09/14/bodypose3d.html). 
+This post gives a general strategy on how to calculate joint angles from 3D body poses given in world coordinates. If you need to get 3D body poses, check my post [here](https://temugeb.github.io/python/computer_vision/2021/09/14/bodypose3d.html). If you want to see a demo for calculating joint angles from 3D poses, check my repository [here](https://github.com/TemugeB/joint_angles_calculate).
 
 There are three main points on how to calculate the joint angles.  
 1. Obtaining a rotation matrix that rotates one vector to another.  

@@ -17,5 +17,5 @@ There are three main points on how to calculate the joint angles.
 We can rotate a general vector **A** into **B** by defining a normal direction given **A**x**B** and then rotating along this new axis.  
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/rots.png?raw=true" height = 100>
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/rots.png?raw=true" height = 300>
 </p>

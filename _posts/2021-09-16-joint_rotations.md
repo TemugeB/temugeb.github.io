@@ -14,8 +14,48 @@ There are three main points on how to calculate the joint angles.
 
 **1. Obtaining a rotation matrix that rotates one vector to another.**
 
-We can rotate a general vector **A** into **B** by defining a normal direction given **A**x**B** and then rotating along this new axis.  
+We can rotate a general vector **A** into **B** by defining a normal direction given **A**x**B** and then rotating along this new axis, as shown in Fig. 1. Our strategy is then to change coorindates to the one defined by **A**, **B**, **A**x**B**, rotate in this basis and then rotate back to original basis.   
 
 <p align="center">
-  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/rots.png?raw=true" height = 300>
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/rots.png?raw=true" height = 280>
 </p>
+<p align="center">
+Figure 1. Rotation along normal direction.
+</p>
+
+
+Given vector **A** and **B**, we can define a new basis by 
+```python 
+
+#calculate rotation matrix to take A vector to B vector
+def Get_R(A,B):
+
+    #get unit vectors
+    uA = A/np.sqrt(np.sum(np.square(A)))
+    uB = B/np.sqrt(np.sum(np.square(B)))
+
+    #get products
+    dotprod = np.sum(uA * uB)
+    crossprod = np.sqrt(np.sum(np.square(np.cross(uA,uB)))) #magnitude
+
+    #get new unit vectors
+    u = uA
+    v = uB - dotprod*uA
+    v = v/np.sqrt(np.sum(np.square(v)))
+    w = np.cross(uA, uB)
+    w = w/np.sqrt(np.sum(np.square(w)))
+
+    #get change of basis matrix
+    C = np.array([u, v, w])
+
+    #get rotation matrix in new basis
+    R_uvw = np.array([[dotprod, -crossprod, 0],
+                      [crossprod, dotprod, 0],
+                      [0, 0, 1]])
+
+    #full rotation matrix
+    R = C.T @ R_uvw @ C
+    #print(R)
+    return R
+
+```

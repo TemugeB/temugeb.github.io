@@ -12,10 +12,17 @@ Tensorflow implementation of the canonical fusion model presented in the paper "
 [https://github.com/TemugeB/CDRnet](https://github.com/TemugeB/CDRnet)
 
 
-**3D body pose esitmation using MediaPipe in real time**
+**3D body pose estimation using MediaPipe in real time**
 
 Some students in the lab needed 3D pose estimation. This is quite easy now with off the shelf body pose estimators. In this example, I show how to obtain 3D pose estimation using mediapipe.  
 [https://github.com/TemugeB/bodypose3d](https://github.com/TemugeB/bodypose3d)
+
+
+**Calculating joint angles from 3D poses**
+
+Joint angles are useful for retargeting body motion on a standard skeleton. This helps remove body proportion differences between motion capture subjects. In this demo, I show how to calculate joint angles from 3D body poses.  
+[https://github.com/TemugeB/joint_angles_calculate](https://github.com/TemugeB/joint_angles_calculate)
+
 
 
 **Real time 3D hand pose esitmation using MediaPipe**

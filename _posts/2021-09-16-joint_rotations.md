@@ -36,12 +36,12 @@ def Get_R(A,B):
     uB = B/np.sqrt(np.sum(np.square(B)))
 
     #get products
-    dotprod = np.sum(uA * uB)
-    crossprod = np.sqrt(np.sum(np.square(np.cross(uA,uB)))) #magnitude
+    cos_t = np.sum(uA * uB)
+    sin_t = np.sqrt(np.sum(np.square(np.cross(uA,uB)))) #magnitude
 
     #get new unit vectors
     u = uA
-    v = uB - dotprod*uA
+    v = uB - np.sum(uA * uB)*uA
     v = v/np.sqrt(np.sum(np.square(v)))
     w = np.cross(uA, uB)
     w = w/np.sqrt(np.sum(np.square(w)))
@@ -50,15 +50,15 @@ def Get_R(A,B):
     C = np.array([u, v, w])
 
     #get rotation matrix in new basis
-    R_uvw = np.array([[dotprod, -crossprod, 0],
-                      [crossprod, dotprod, 0],
+    R_uvw = np.array([[cos_t, -sin_t, 0],
+                      [sin_t, cos_t, 0],
                       [0, 0, 1]])
 
     #full rotation matrix
     R = C.T @ R_uvw @ C
     #print(R)
     return R
-
 ```
+
 
 

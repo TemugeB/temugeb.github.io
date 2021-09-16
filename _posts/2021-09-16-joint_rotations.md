@@ -24,8 +24,8 @@ Figure 1. Rotation along normal direction.
 </p>
 
 
-Given vector **A** and **B**, we can define a new basis by making **A** a unit vector and taking the rejection of **B** onto **A** as the second axis. The third axis is simply defined as **A**x**B** normalized. This will allow us to write down the change of basis rotation matrix. Once the coordinates are aligned, we can simply rotate along the **A**x**B** direction, which is given by Rz rotation matrix. Note however that we don't need to know the rotation angle, since cos(theta)
-and sin(theta) are simply dot and cross products of the normalized **A** and **B** vectors. The code below calculates the rotation matrix necessary to rotate some vector **A** into **B**. Notice however that they don't have to be the same length, as we normalize the vectors. 
+We can define a new basis by making **A** a unit vector and taking the rejection of **B** onto **A** as the second axis. The third axis is simply defined as **A**x**B** normalized. This will allow us to write down the change of basis rotation matrix. Once the coordinates are aligned, we can simply rotate along the **A**x**B** direction, which is given by Rz rotation matrix. Note however that we don't need to know the rotation angle, since cos(theta)
+and sin(theta) are simply dot and cross products of the normalized **A** and **B** vectors. The code below calculates the rotation matrix necessary to rotate some vector **A** into **B**. Notice however that they don't have to be the same length, since we normalize the vectors. 
 ```python 
 
 #calculate rotation matrix to take A vector to B vector
@@ -59,6 +59,31 @@ def Get_R(A,B):
     #print(R)
     return R
 ```
+
+**2. Decomposing rotation matrix into rotation sequence along major axes. **  
+
+When decomposing a rotation matrix, the order of the rotation is important. In this example, we use the ZXY order, where we rotate around Y first. The rotation matrix in this case is:
+<p align="center">
+  <img src="https://github.com/TemugeB/temugeb.github.io/blob/main/_posts/images/Rmat.gif?raw=true" height = 180>
+</p>
+
+The rotation angles can be calculated from the full expansion above. For example, we see that arctan(r01/r11) gives rotation around z axis. In the same manner, all joint angles are calculated. If any other rotation order is used, then the matrix has the be rewritten with the correct order and then joint angles recalculated. Additionally, the arctan function needs to check the quadrant. Numpy has a useful function that checks the quadrant which I use below.
+
+```python
+
+def Decompose_R_ZXY(R):
+
+    #decomposes as RzRXRy. Note the order: ZXY <- rotation by y first
+    thetaz = np.arctan2(-R[0,1], R[1,1])
+    thetay = np.arctan2(-R[2,0], R[2,2])
+    thetax = np.arctan2(R[2,1], np.sqrt(R[2,0]**2 + R[2,2]**2))
+
+    return thetaz, thetay, thetax
+```
+
+**3. Define a T pose.**
+
+
 
 
 

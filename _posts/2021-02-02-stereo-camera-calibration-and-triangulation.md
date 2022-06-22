@@ -5,6 +5,8 @@ date:   2021-02-02 10:00:00 +0000
 categories: OpenCV Python
 ---
 
+2022.06 UPDATE: The code in this post has be updated and turned into a package. If you just want the calibration results, go here: [Stereo Camera Calibration](https://github.com/TemugeB/python_stereo_camera_calibrate)
+
 In this post, I show how to calibrate two cameras looking at the same view using a checkerboard pattern. Next, I show how to triangulate a 3D point based on the observed pixel coordinates of the two cameras.
 
 <p align="center">

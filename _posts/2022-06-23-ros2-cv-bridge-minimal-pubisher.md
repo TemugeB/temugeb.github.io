@@ -5,7 +5,29 @@ date:   2021-10-01 10:00:00 +0000
 categories: ROS2 cv_bridge cpp python
 ---
 
-In this post, I show how to use cv_bridge in a minimal frames publisher node in ROS2 written in C++. Python code is also included for the relevant part below. Check Line 85 and below for cv_bridge related code. 
+In this post, I show how to use cv_bridge in a minimal frames publisher node in ROS2 written in C++. Python code is also included for the relevant part below.
+
+A short usage example. For a full node example, see below.
+
+```cpp
+
+cv::Mat frame;
+cap.read(frame);
+
+//create ROS2 messages
+sensor_msgs::msg::Image _img_msg;
+std_msgs::msg::Header _header;
+cv_bridge::CvImage _cv_bridge;
+_header.stamp = this->get_clock() -> now();
+_cv_bridge = cv_bridge::CvImage(_header, sensor_msgs::image_encodings::BGR8, frame);
+_cv_bridge.toImageMsg(_img_msg);
+
+//publish
+_image_publisher_ -> publish(_img_msg);
+
+```
+
+A full node example.
 
 ```cpp
 

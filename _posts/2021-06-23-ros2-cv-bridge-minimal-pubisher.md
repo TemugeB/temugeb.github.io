@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  "ROS2 CVBridge Example in Cpp and Python"
+title:  "ROS2 CV_Bridge Example in Cpp and Python"
 date:   2021-10-01 10:00:00 +0000
-categories: ROS2 cvbridge cpp python
+categories: ROS2 cv_bridge cpp python
 ---
 
 In this post, I show how to use cv_bridge in a minimal frames publisher node in ROS2 written in C++. Python code is also included for the relevant part below. Check Line 85 and below for cv_bridge related code. 

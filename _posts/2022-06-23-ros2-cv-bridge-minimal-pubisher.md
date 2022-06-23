@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "ROS2 CV_Bridge Example in Cpp and Python"
+title:  "ROS2 CVBridge Example in Cpp and Python"
 date:   2022-06-23 10:00:00 +0000
 categories: ROS2 cv_bridge cpp python
 ---

@@ -19,7 +19,7 @@ The flow of this demo will be:
   2. Calibrate stereo camera setup.
   3. Use direct linear transform(DLT) to triangulate camera pixels to 3D coordinates.
 
-I assume that you have already taken checkerboard pattern videos by both cameras. Make sure that your cameras are synchronized so that both frames see the same checkerboard pattern at the same time. If you don’t have video available, you can download my calibration frames here: [link](https://drive.google.com/file/d/1yFGQU8PG_Ls6DXDRshWoEydSS29sUJbI/view?usp=sharing). Put each folder in the zip file next to your code script.  
+I assume that you have already taken checkerboard pattern videos by both cameras. Make sure that your cameras are synchronized so that both frames see the same checkerboard pattern at the same time. If you don’t have video available, you can download my calibration frames here: [link](https://drive.google.com/file/d/1o6OVbxi6dT0kDinmUQaBrEZBF3vz_kDp/view?usp=sharing). Put each folder in the zip file next to your code script.  
 
 **Calibrating Single View Cameras**
 
@@ -415,7 +415,7 @@ RT2 = np.concatenate([R, T], axis = -1)
 P2 = mtx2 @ RT2 #projection matrix for C2
 ```
 
-All that is left is to triangulate each point using direct linear transform(DLT). Here I provide my code for DLT without explanation. If you want to know how DLT works, please see here for my post: [link](https://temugebatpurev.wordpress.com/2021/02/06/direct-linear-transforms-dlt/).
+All that is left is to triangulate each point using direct linear transform(DLT). Here I provide my code for DLT without explanation. If you want to know how DLT works, please see here for my post: [link](https://temugeb.github.io/computer_vision/2021/02/06/direct-linear-transorms.html).
 
 ```python
 def DLT(P1, P2, point1, point2):
@@ -476,7 +476,7 @@ plt.show()
 </p>
 
 
-So that is it. The full code is below. You can copy and paste for the full run through. Make sure you also download and put the frames I use in this demo in the same working folder. The frames can be downloaded here: [link](https://drive.google.com/file/d/1yFGQU8PG_Ls6DXDRshWoEydSS29sUJbI/view?usp=sharing). If you observe a segmentation fault crash, then comment out cv.imshow() or plt.show() calls.
+So that is it. The full code is below. You can copy and paste for the full run through. Make sure you also download and put the frames I use in this demo in the same working folder. The frames can be downloaded here: [link](https://drive.google.com/file/d/1o6OVbxi6dT0kDinmUQaBrEZBF3vz_kDp/view?usp=sharing). If you observe a segmentation fault crash, then comment out cv.imshow() or plt.show() calls.
 
 ```python 
 import cv2 as cv

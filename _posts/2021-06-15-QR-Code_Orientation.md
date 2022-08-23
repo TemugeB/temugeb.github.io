@@ -176,7 +176,7 @@ To finish things up, we simply call the get_qr_coords() function whenever QR cod
 If you need the position of the QR code with respect to the camera, then the position is saved in tvec. That is, the location of the QR code from the camera is tvec. On the other hand, if you need to location of the camera from the new QR code coordinates, then this can be calculated as:
 ```python
 rvec, jacobian = cv.Rodrigues(rvec)
-camera_position = -rvec.transpose() * tvec
+camera_position = -rvec.transpose() @ tvec
 ```
 
 For closing notes, in this demo, we've used QR code to obtain the corner points. But in general, QR code is not necessary. As long as we can determine four in-plane points, the above method will work in determining orientation and location. For example, AR marker could be used to obtain the four corners, from which we can again define a coordinate system. 

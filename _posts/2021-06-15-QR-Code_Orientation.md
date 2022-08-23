@@ -183,3 +183,4 @@ For closing notes, in this demo, we've used QR code to obtain the corner points.
 
 The accuracy of the QR detector is determined by how well the camera can focus on the QR code. In practice, focus of the camera should change as we get closer to the QR code. When the camera or the QR code moves fast, then the image is blurry and we observe poor performance from the QR detector. Additionally, if focal point of the camera changes, then the intrinsic parameters of the camera also changes. This mean the code above must dynamically create the intrinic parameters. 
 
+Finally, if you don't care about the encoded message in the QR code, I find that ARUCO markers are much more relaiably detected than QR code. The ARUCO markers can give you a marker index, which you can use to look up external information. OpenCV supports ARUCO markers so minimal changes are required to support ARUCO markers. 

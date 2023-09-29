@@ -23,11 +23,11 @@ To align the depth image, the workflow will be:
 The figure below shows how the depth image is setup. We are looking at only the x axis pixels in this example, but it is the same for y axis.
 
 ![image](https://github.com/TemugeB/temugeb.github.io/assets/36071915/4345d961-ed2c-41db-a4f2-9a87f540c121)
-where _d_ is the depth value of the pixel _px_ and _fx_ is the focal point of the camera. So the x position of the point in 3D space can be calculated from similar triangles as:
+Here, _d_ is the depth value of the pixel _px_ and _fx_ is the focal point of the camera. So the x position of the point in 3D space can be calculated from similar triangles as:
 
 ![image](https://github.com/TemugeB/temugeb.github.io/assets/36071915/cecbc2ca-6b4a-4f45-bb5d-6b5dc76f42f8)
 
-We see here that _d_ is depened on the image but _fx_ and _px_ are depened on the camera settings. So the constants in the parenthesis can be precalculated. Once we get a depth image, we simply multiple each depth pixel by a constant to get the x and y coordinates in 3D space to make a pointcloud. In the demo code, this is done so:
+We see here that _d_ is dependent on the image but _fx_ and _px_ are depened on the camera settings. So the constants in the parenthesis can be precalculated. Once we get a depth image, we simply multiple each depth pixel by a constant to get the x and y coordinates in 3D space to make a pointcloud. In the demo code, this is done so:
 
 ```python
 
